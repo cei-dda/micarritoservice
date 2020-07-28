@@ -14,4 +14,19 @@
     WHERE i.id = #{id}
   </select>
   
+  <select id="fetchAll" resultMap="ItemResultMap">
+  	SELECT i.id, i.description
+    FROM items i
+  </select>
+  
+  <insert id="save">
+  	INSERT INTO items(id, description)
+  	VALUES(#{item.id}, #{item.description})
+  </insert>
+  
+  <update id="update">
+  	UPDATE items SET description=#{item.description}
+  	WHERE id=#{item.id}
+  </update>
+  
 </mapper>
