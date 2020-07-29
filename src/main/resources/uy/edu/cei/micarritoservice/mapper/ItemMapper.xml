@@ -8,13 +8,13 @@
     <result property="description" column="description"/>
   </resultMap>
   
-  <select id="fetchItemById" resultMap="ItemResultMap">
+  <select id="fetchItemById" resultType="Item">
     SELECT i.id, i.description
     FROM items i
     WHERE i.id = #{id}
   </select>
   
-  <select id="fetchAll" resultMap="ItemResultMap">
+  <select id="fetchAll" resultType="Item">
   	SELECT i.id, i.description
     FROM items i
   </select>
