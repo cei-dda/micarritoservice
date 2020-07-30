@@ -10,9 +10,9 @@ INSERT INTO items(id, description, price) VALUES (2, 'ITEM 2', 35);
 
 CREATE TABLE users
 (
-	id BIGINT PRIMARY KEY,
+	id BIGINT IDENTITY PRIMARY KEY,
 	firstname VARCHAR(255),
 	lastname VARCHAR(255)
 );
 
-INSERT INTO users(id, firstname, lastname) VALUES (1, 'pepe', 'gonzales');
+INSERT INTO users(firstname, lastname) VALUES ('pepe', 'gonzales');
