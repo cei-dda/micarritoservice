@@ -11,5 +11,7 @@ import uy.edu.cei.micarritoservice.entities.User;
 public interface UserMapper {
 
 	public User fetchById(@Param("id") Long id);
+
+	public void save(@Param("user") User user);
 	
 }

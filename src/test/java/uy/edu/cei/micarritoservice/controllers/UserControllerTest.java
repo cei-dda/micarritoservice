@@ -18,6 +18,12 @@ class UserControllerTest {
 				user.setId(123L);
 				return user;
 			}
+			
+			@Override
+			public void save(User user) {
+				// TODO Auto-generated method stub
+				
+			}
 		};
 		
 		UserController controller = new UserController(mock);

@@ -9,4 +9,9 @@
     WHERE u.id = #{id}
   </select>
   
+  <insert id="save">
+  	INSERT INTO users(id, firstname, lastname)
+  	VALUES(#{user.id}, #{user.firstname}, #{user.lastname})
+  </insert>
+  
 </mapper>
