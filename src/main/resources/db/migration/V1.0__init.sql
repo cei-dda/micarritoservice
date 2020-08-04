@@ -26,6 +26,7 @@ CREATE TABLE documents
 );
 
 INSERT INTO documents(created_date, user_id) VALUES('1', 1);
+INSERT INTO documents(created_date, user_id) VALUES('2', 1);
 
 CREATE TABLE document_items
 (
@@ -37,3 +38,4 @@ CREATE TABLE document_items
 
 INSERT INTO document_items(document_id, item_id) VALUES(1, 1);
 INSERT INTO document_items(document_id, item_id) VALUES(1, 2);
+INSERT INTO document_items(document_id, item_id) VALUES(2, 2);
