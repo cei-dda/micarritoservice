@@ -16,9 +16,10 @@ public class DocumentController {
 	@Autowired
 	private DocumentMapper documentMapper;
 	
+	// /document?user=1&document=1
 	@GetMapping("/document")
 	public List<Document> show(
-			@RequestParam(value = "document") Long documentId,
+			@RequestParam(value = "document", required = false) Long documentId,
 			@RequestParam(value = "user", required = true) Long userId) {
 		return this.documentMapper.fetchDocuments(documentId, userId);
 	}
