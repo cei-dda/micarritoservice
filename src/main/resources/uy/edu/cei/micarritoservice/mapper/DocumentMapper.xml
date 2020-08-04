@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper
+	namespace="uy.edu.cei.micarritoservice.mapper.DocumentMapper">
+
+	<resultMap type="Document" id="documentWithItems">
+		<id property="id" column="document_id"/>
+		<result property="createdDate" column="created_date"/>
+		<association property="user" javaType="User">
+			<id property="id" column="user_id"/>
+			<result property="firstname" column="user_firstname"/> 
+			<result property="lastname"  column="user_lastname"/>
+		</association>
+		<collection property="items" ofType="Item">
+			<id property="id" column="item_id"/>
+			<result property="description" column="item_description"/>
+		</collection>
+	</resultMap>
+
+	<select id="fetchDocument" resultMap="documentWithItems">
+		SELECT doc.id AS document_id,
+			doc.created_date AS created_date,
+			i.id AS item_id,
+			i.description AS item_description,
+			u.id AS user_id,
+			u.firstname AS user_firstname,
+			u.lastname AS user_lastname
+		FROM documents doc,
+			items i,
+			document_items di,
+			users u
+		WHERE doc.id = #{document_id}
+			AND u.id = #{user_id}
+			AND doc.user_id = u.id
+			AND di.document_id = doc.id
+			AND di.item_id = i.id;
+	</select>
+
+</mapper>
