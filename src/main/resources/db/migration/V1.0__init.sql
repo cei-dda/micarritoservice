@@ -1,3 +1,12 @@
+CREATE TABLE categories
+(
+	id BIGINT IDENTITY PRIMARY KEY,
+	name VARCHAR(255),
+);
+
+INSERT INTO categories(name) VALUES('category 1');
+INSERT INTO categories(name) VALUES('category 2');
+
 CREATE TABLE items
 (
 	id BIGINT IDENTITY PRIMARY KEY,
